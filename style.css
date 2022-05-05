@@ -1,3 +1,7 @@
 body {
   background-color: lightcyan;
 }
+
+p {
+  width: 50px;
+}
