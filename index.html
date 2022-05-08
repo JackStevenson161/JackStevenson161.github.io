@@ -2,6 +2,21 @@
 <html>
   <head>
   <link rel="stylesheet" href="style.css">
+  <script>
+  function allowDrop(ev) {
+    ev.preventDefault();
+  }
+
+  function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+  }
+
+  function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+  }
+</script>
   </head>
   <body>
     <h1>Psychoanalysis, now in full color!</h1>
@@ -10,5 +25,8 @@
          You are permitted to use any online resources to help you figure out what the objects are, but nothing beyond that. So, without further ado, let's
          psychoanalyze your friends!</p>
     <br>
+    <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+    <img id="drag1" src="img_logo.gif" draggable="true" ondragstart="drag(event)" width="336" height="69">
   </body>
 </html>
